@@ -1,37 +1,42 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { GradientFive } from "@/constants/Gradients";
+import { screenHeight } from "@/constants/variousConstants";
+import { FlexFull } from "@/custom-components/containers";
+import MyNavBar from "@/custom-components/navBar";
+import { Stack } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const testNavItems = [
+    {
+      inactiveIcon: "home-outline",
+      activeIcon: "home",
+      label: "home",
+      pathname: "/",
+    },
+    {
+      inactiveIcon: "color-palette-outline",
+      activeIcon: "color-palette",
+      label: "theme",
+      pathname: "/colors",
+    },
+    {
+      inactiveIcon: "grid-outline",
+      activeIcon: "grid",
+      label: "components",
+      pathname: "/components",
+    },
+  ];
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <FlexFull style={{ height: screenHeight }}>
+      <GradientFive style={{ display: "flex", flex: 1, position: "relative" }}>
+        <MyNavBar navItems={testNavItems} />
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="colors" options={{ headerShown: false }} />
+          <Stack.Screen name="components" options={{ headerShown: false }} />
+        </Stack>
+      </GradientFive>
+    </FlexFull>
   );
 }
