@@ -25,6 +25,12 @@ export default function TabLayout() {
       label: "components",
       pathname: "/components",
     },
+    {
+      inactiveIcon: "cog-outline",
+      activeIcon: "cog",
+      label: "testing",
+      pathname: "/testing",
+    },
   ];
 
   return (
@@ -35,6 +41,7 @@ export default function TabLayout() {
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="colors" options={{ headerShown: false }} />
           <Stack.Screen name="components" options={{ headerShown: false }} />
+          <Stack.Screen name="testing" options={{ headerShown: false }} />
         </Stack>
       </GradientFive>
     </FlexFull>

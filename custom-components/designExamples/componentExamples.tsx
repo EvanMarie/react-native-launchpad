@@ -1,5 +1,6 @@
 import {
   CenterHorizontalFull,
+  FlexFull,
   VStack,
   VStackFull,
   WrapFull,
@@ -12,7 +13,6 @@ import {
   Heading2xl,
   HeadingLg,
   HeadingMd,
-  Text2xl,
   TextLg,
   TextMd,
   TextXl,
@@ -20,7 +20,6 @@ import {
 import ToggleSwitch from "@/custom-components/toggleSwitch";
 import { useState } from "react";
 import { View } from "react-native";
-import CustomScrollView from "@/custom-components/scrollView";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomAlert from "@/custom-components/alert";
 import HorizontalPageSwiper from "@/custom-components/horizontalPageSwiper";
@@ -149,43 +148,44 @@ export function ModalExample() {
         animation="slide"
       >
         <GradientThree style={{ height: screenHeight }}>
-          {/* <CustomScrollView> */}
-          <ScrollProgress top={0} right={0} left={0}>
-            <VStackFull
-              style={{
-                height: "100%",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 20,
-              }}
-            >
+          <FlexFull style={{ paddingTop: 55, position: "relative" }}>
+            <ScrollProgress height={screenHeight * 0.95}>
               <VStackFull
-                style={{ alignItems: "center", paddingTop: 50, gap: 20 }}
+                style={{
+                  height: "100%",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 20,
+                  paddingBottom: 20,
+                }}
               >
-                <ModalContent />
-                <ModalContent />
-                <ModalContent />
-                <ModalContent />
-                <ModalContent />
-                <ModalContent />
+                <VStackFull
+                  style={{ alignItems: "center", paddingTop: 10, gap: 20 }}
+                >
+                  <ModalContent />
+                  <ModalContent />
+                  <ModalContent />
+                  <ModalContent />
+                  <ModalContent />
+                  <ModalContent />
+                </VStackFull>
+                <TouchableOpacity
+                  onPress={() => setModalVisible(false)}
+                  style={[
+                    boxShadows.lg,
+                    {
+                      padding: 10,
+                      width: 135,
+                      backgroundColor: col[500],
+                      borderRadius: 20,
+                    },
+                  ]}
+                >
+                  <TextLg textColor={col[900]}>close me</TextLg>
+                </TouchableOpacity>
               </VStackFull>
-              <TouchableOpacity
-                onPress={() => setModalVisible(false)}
-                style={[
-                  boxShadows.lg,
-                  {
-                    padding: 10,
-                    width: 135,
-                    backgroundColor: col[500],
-                    borderRadius: 20,
-                  },
-                ]}
-              >
-                <TextLg textColor={col[900]}>close me</TextLg>
-              </TouchableOpacity>
-            </VStackFull>
-          </ScrollProgress>
-          {/* </CustomScrollView> */}
+            </ScrollProgress>
+          </FlexFull>
         </GradientThree>
       </CustomModal>
     </CenterHorizontalFull>
