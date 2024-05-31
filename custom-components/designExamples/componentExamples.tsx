@@ -1,4 +1,5 @@
 import {
+  Center,
   CenterHorizontalFull,
   FlexFull,
   VStack,
@@ -19,7 +20,7 @@ import {
 } from "@/custom-components/textComponents";
 import ToggleSwitch from "@/custom-components/toggleSwitch";
 import { useState } from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomAlert from "@/custom-components/alert";
 import HorizontalPageSwiper from "@/custom-components/horizontalPageSwiper";
@@ -35,7 +36,7 @@ import BottomSheet from "@/custom-components/bottomSheet";
 import ScrollProgress from "@/custom-components/scrollProgress";
 import { boxShadows, textShadows } from "@/constants/ShadowStyles";
 import { col } from "@/constants/Colors";
-import { GradientThree } from "@/constants/Gradients";
+import { GradientFour, GradientThree } from "@/constants/Gradients";
 import { screenHeight, screenWidth } from "@/constants/variousConstants";
 import { borders } from "@/constants/BorderStyles";
 import {
@@ -46,6 +47,8 @@ import {
   imageExample5,
 } from "@/assets/imageExports";
 import BouncingDots from "../bouncingDots";
+import ShiftingImages from "../shiftingImages";
+import { ShiftingComponents } from "../shiftingComponents";
 
 export function ToggleSwitchesExample() {
   const [smToggleOn, setSmToggleOn] = useState(false);
@@ -127,68 +130,73 @@ export function ModalExample() {
     );
   }
   return (
-    <CenterHorizontalFull>
-      <TouchableOpacity
-        onPress={() => setModalVisible(true)}
-        style={[
-          boxShadows.lg,
-          {
-            padding: 10,
-            width: 175,
-            backgroundColor: col[500],
-            borderRadius: 20,
-          },
-        ]}
-      >
-        <TextMd textColor={col[900]}>Modal Example</TextMd>
-      </TouchableOpacity>
-      <CustomModal
-        isVisible={modalVisible}
-        setIsVisible={setModalVisible}
-        animation="slide"
-      >
-        <GradientThree style={{ height: screenHeight }}>
-          <FlexFull style={{ paddingTop: 55, position: "relative" }}>
-            <ScrollProgress height={screenHeight * 0.95}>
-              <VStackFull
-                style={{
-                  height: "100%",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: 20,
-                  paddingBottom: 20,
-                }}
-              >
+    <VStackFull style={{ gap: 10, alignItems: "center" }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Modal with Scroll Progress</HeadingLg>
+      </CenterHorizontalFull>
+      <CenterHorizontalFull>
+        <TouchableOpacity
+          onPress={() => setModalVisible(true)}
+          style={[
+            boxShadows.lg,
+            {
+              padding: 10,
+              width: 175,
+              backgroundColor: col[500],
+              borderRadius: 20,
+            },
+          ]}
+        >
+          <TextMd textColor={col[900]}>Modal Example</TextMd>
+        </TouchableOpacity>
+        <CustomModal
+          isVisible={modalVisible}
+          setIsVisible={setModalVisible}
+          animation="slide"
+        >
+          <GradientThree style={{ height: screenHeight }}>
+            <FlexFull style={{ paddingTop: 55, position: "relative" }}>
+              <ScrollProgress height={screenHeight * 0.95}>
                 <VStackFull
-                  style={{ alignItems: "center", paddingTop: 10, gap: 20 }}
+                  style={{
+                    height: "100%",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: 20,
+                    paddingBottom: 20,
+                  }}
                 >
-                  <ModalContent />
-                  <ModalContent />
-                  <ModalContent />
-                  <ModalContent />
-                  <ModalContent />
-                  <ModalContent />
+                  <VStackFull
+                    style={{ alignItems: "center", paddingTop: 10, gap: 20 }}
+                  >
+                    <ModalContent />
+                    <ModalContent />
+                    <ModalContent />
+                    <ModalContent />
+                    <ModalContent />
+                    <ModalContent />
+                  </VStackFull>
+                  <TouchableOpacity
+                    onPress={() => setModalVisible(false)}
+                    style={[
+                      boxShadows.lg,
+                      {
+                        padding: 10,
+                        width: 135,
+                        backgroundColor: col[500],
+                        borderRadius: 20,
+                      },
+                    ]}
+                  >
+                    <TextLg textColor={col[900]}>close me</TextLg>
+                  </TouchableOpacity>
                 </VStackFull>
-                <TouchableOpacity
-                  onPress={() => setModalVisible(false)}
-                  style={[
-                    boxShadows.lg,
-                    {
-                      padding: 10,
-                      width: 135,
-                      backgroundColor: col[500],
-                      borderRadius: 20,
-                    },
-                  ]}
-                >
-                  <TextLg textColor={col[900]}>close me</TextLg>
-                </TouchableOpacity>
-              </VStackFull>
-            </ScrollProgress>
-          </FlexFull>
-        </GradientThree>
-      </CustomModal>
-    </CenterHorizontalFull>
+              </ScrollProgress>
+            </FlexFull>
+          </GradientThree>
+        </CustomModal>
+      </CenterHorizontalFull>
+    </VStackFull>
   );
 }
 
@@ -269,7 +277,7 @@ const swipablePagesTwo = [
 
 export function HorizontalPageSwipingExample() {
   return (
-    <VStackFull style={{ alignItems: "center" }}>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
       <HeadingMd>Horizontal Page Swiping Example</HeadingMd>
       <CenterHorizontalFull style={{ height: screenHeight / 2.3, padding: 10 }}>
         <CenterHorizontalFull
@@ -288,7 +296,7 @@ export function HorizontalPageSwipingExample() {
 
 export function VerticalPageSwipingExample() {
   return (
-    <VStackFull style={{ alignItems: "center" }}>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
       <HeadingMd>Vertical Page Swiping Example</HeadingMd>
       <CenterHorizontalFull style={{ height: screenHeight / 2.3, padding: 10 }}>
         <CenterHorizontalFull
@@ -307,8 +315,10 @@ export function VerticalPageSwipingExample() {
 
 export function CustomExpandableTextExample() {
   return (
-    <VStackFull>
-      <HeadingLg>Expandable Content: Text</HeadingLg>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Expandable Content: Text</HeadingLg>
+      </CenterHorizontalFull>
       <CustomExpandable
         expandedHeader="This is the expanded header"
         mainHeader="Collapsed Header"
@@ -321,9 +331,10 @@ export function CustomExpandableTextExample() {
 
 export function CustomExpandableImageExample() {
   return (
-    <VStackFull>
-      <HeadingLg>Expandable Content: Image</HeadingLg>
-
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Expandable Content: Image</HeadingLg>
+      </CenterHorizontalFull>
       <CustomExpandable
         mainHeader="Check out this image!"
         expandedContent={
@@ -344,8 +355,10 @@ export function CustomExpandableImageExample() {
 export function ImageWithModalExample() {
   const images = [imageExample2, imageExample3, imageExample4];
   return (
-    <VStackFull>
-      <HeadingLg>Images with Modal</HeadingLg>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Images with Modal</HeadingLg>
+      </CenterHorizontalFull>
       <WrapFull style={{ justifyContent: "space-evenly" }}>
         {images.map((image) => (
           <ImageWithModal
@@ -364,7 +377,7 @@ export function ImageWithModalExample() {
 export function ExpandableImageExample() {
   const images = [imageExample5, imageExample1, imageExample2];
   return (
-    <VStackFull style={{ alignItems: "center" }}>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
       <HeadingLg>Expandable Images</HeadingLg>
       <VStackFull style={{ alignItems: "center", gap: 20 }}>
         {images.map((image) => (
@@ -379,7 +392,7 @@ export function ExpandableImageExample() {
 
 export function CustomImageBackgroundExample() {
   return (
-    <VStackFull style={{ alignItems: "center" }}>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
       <HeadingLg>Custom Image Background</HeadingLg>
       <View style={{ height: screenWidth * 0.95, width: screenWidth * 0.95 }}>
         <CustomImageBackground
@@ -404,8 +417,10 @@ export function SegmentedButtonBarExample() {
     { text: "Button 4", onPress: () => console.log("Button 4 pressed") },
   ];
   return (
-    <VStackFull>
-      <HeadingLg>Segmented Button Bar</HeadingLg>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Segmented Button Bar</HeadingLg>
+      </CenterHorizontalFull>
       <CenterHorizontalFull>
         <SegmentedButtonBar buttonArray={buttonItems} />
       </CenterHorizontalFull>
@@ -415,20 +430,101 @@ export function SegmentedButtonBarExample() {
 
 export function BottomSheetExample() {
   return (
-    <VStackFull>
-      <HeadingLg>Bottom Sheet Example</HeadingLg>
+    <>
+      <CenterHorizontalFull>
+        <HeadingLg>Bottom Sheet Example</HeadingLg>
+      </CenterHorizontalFull>
       <BottomSheet>
         <TextXl textColor={col[900]}> I am the bottom sheet content!</TextXl>
       </BottomSheet>
-    </VStackFull>
+    </>
   );
 }
 
 export function BouncingDotsExample() {
   return (
-    <VStackFull>
-      <HeadingLg>Bouncing Dots Indicator</HeadingLg>
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Bouncing Dots Indicator</HeadingLg>
+      </CenterHorizontalFull>
       <BouncingDots />
+    </VStackFull>
+  );
+}
+
+export function ShiftingImagesExample() {
+  const imagesArray = [
+    imageExample1,
+    imageExample2,
+    imageExample3,
+    imageExample4,
+  ];
+  return (
+    <VStackFull style={{ alignItems: "center", gap: 10 }}>
+      <HeadingLg>Shifting Images</HeadingLg>
+      <CenterHorizontalFull>
+        <ShiftingImages imageArray={imagesArray} />
+      </CenterHorizontalFull>
+    </VStackFull>
+  );
+}
+
+export function ShiftingComponentsExample() {
+  function TextBox({
+    label,
+    bg = col[500],
+    textColor = col[100],
+  }: {
+    label: string;
+    bg?: string;
+    textColor?: string;
+  }) {
+    return (
+      <View
+        style={[
+          boxShadows.xl,
+          borders.borderLg300,
+          {
+            alignItems: "center",
+            justifyContent: "center",
+            width: screenWidth * 0.9,
+            height: screenWidth * 0.5,
+            backgroundColor: bg,
+            borderRadius: 20,
+          },
+        ]}
+      >
+        <Text
+          style={[
+            textShadows.rightLg,
+            {
+              fontSize: 35,
+              textAlign: "center",
+              color: textColor,
+            },
+          ]}
+        >
+          Component: {label}
+        </Text>
+      </View>
+    );
+  }
+  const componentArray = [
+    <TextBox label="1" bg={col[900]} />,
+    <TextBox label="2" bg={col[800]} />,
+    <TextBox label="3" bg={col[700]} />,
+    <TextBox label="4" bg={col[600]} />,
+    <TextBox label="5" bg={col[500]} />,
+  ];
+
+  return (
+    <VStackFull style={{ gap: 10 }}>
+      <CenterHorizontalFull>
+        <HeadingLg>Shifting Components</HeadingLg>
+      </CenterHorizontalFull>
+      <CenterHorizontalFull>
+        <ShiftingComponents components={componentArray} />
+      </CenterHorizontalFull>
     </VStackFull>
   );
 }

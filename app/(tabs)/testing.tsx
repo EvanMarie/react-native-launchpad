@@ -1,25 +1,19 @@
-import {
-  imageExample1,
-  imageExample2,
-  imageExample3,
-  imageExample4,
-} from "@/assets/imageExports";
 import { GradientFour } from "@/constants/Gradients";
-import { screenHeight, screenWidth } from "@/constants/variousConstants";
+import { screenHeight } from "@/constants/variousConstants";
 import { CenterHorizontalFull } from "@/custom-components/containers";
-import ShiftingImages from "@/custom-components/shiftingImages";
+import { ShiftingComponentsExample } from "@/custom-components/designExamples/componentExamples";
 
-export default function Testing() {
-  const imagesArray = [
-    imageExample1,
-    imageExample2,
-    imageExample3,
-    imageExample4,
-  ];
+export default function Text() {
   return (
-    <GradientFour>
-      <CenterHorizontalFull style={{ height: screenHeight }}>
-        <ShiftingImages imageArray={imagesArray} />
+    <GradientFour
+      style={{
+        height: screenHeight,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <CenterHorizontalFull>
+        <ShiftingComponentsExample />
       </CenterHorizontalFull>
     </GradientFour>
   );

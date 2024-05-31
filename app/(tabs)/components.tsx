@@ -12,6 +12,8 @@ import {
   ImageWithModalExample,
   ModalExample,
   SegmentedButtonBarExample,
+  ShiftingComponentsExample,
+  ShiftingImagesExample,
   ToggleSwitchesExample,
   VerticalPageSwipingExample,
 } from "@/custom-components/designExamples/componentExamples";
@@ -49,6 +51,10 @@ export default function DesignComponents() {
             <CustomImageBackgroundExample />
             <Divider />
             <BouncingDotsExample />
+            <Divider />
+            <ShiftingImagesExample />
+            <Divider />
+            <ShiftingComponentsExample />
             <Divider />
             <SegmentedButtonBarExample />
             <Divider />

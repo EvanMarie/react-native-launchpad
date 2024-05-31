@@ -29,6 +29,7 @@ interface ShiftingImagesProps {
   containerStyle?: any;
   border?: any;
   boxShadow?: any;
+  isImages?: boolean;
 }
 
 const shapeStyles = {
@@ -50,6 +51,7 @@ export default function ShiftingImages({
   boxShadow = boxShadows.lg,
   imageStyle = {},
   containerStyle = {},
+  isImages = true,
 }: ShiftingImagesProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(imagesLocal);

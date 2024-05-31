@@ -7,7 +7,8 @@ export default function Divider({
   width = screenWidth * 0.95,
   color = col[550],
   margin,
-  padding,
+  paddingTop,
+  paddingBottom,
   border,
   borderRadius,
   style,
@@ -17,7 +18,8 @@ export default function Divider({
   width?: string | number;
   color?: string;
   margin?: number;
-  padding?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
   border?: number;
   borderRadius?: number;
   style?: any;
@@ -34,14 +36,15 @@ export default function Divider({
     >
       <View
         style={[
+          border,
           {
-            height,
-            width,
+            height: height,
+            width: width,
             backgroundColor: color,
-            margin,
-            padding,
-            border,
-            borderRadius,
+            margin: margin,
+            paddingTop: paddingTop,
+            paddingBottom: paddingBottom,
+            borderRadius: borderRadius,
           },
           style,
         ]}
