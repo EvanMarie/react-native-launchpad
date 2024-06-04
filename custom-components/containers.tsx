@@ -186,7 +186,6 @@ export function CenterHorizontalFull({
           alignItems: "center",
           alignContent: "center",
           width: "100%",
-          flex: 1,
         },
         style,
       ]}
