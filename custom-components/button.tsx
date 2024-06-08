@@ -15,7 +15,7 @@ import BouncingDots from "./bouncingDots";
 import CustomAlert from "./alert";
 import { boldAccentFont } from "@/constants/FontVariables";
 
-interface CustomButtonProps {
+interface MyButtonProps {
   onPress?: () => void;
   scrollTo?: () => void;
   style?: StyleProp<ViewStyle>;
@@ -41,9 +41,9 @@ export default function MyButton({
   alertText,
   confirmText,
   cancelText,
-}: CustomButtonProps) {
+}: MyButtonProps) {
   const [bg, setBg] = useState(buttonBg);
-  const [color, setColor] = useState(col[900]);
+  const [color, setColor] = useState(buttonText);
 
   const onPressButton = () => {
     if (scrollTo) {

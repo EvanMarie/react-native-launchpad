@@ -1,4 +1,4 @@
-import { buttonBg, col } from "@/constants/Colors";
+import { buttonBg, buttonText, col } from "@/constants/Colors";
 import React, { useState } from "react";
 import { Alert, StyleProp, Text, Touchable, ViewStyle } from "react-native";
 import { TextSm } from "./textComponents";
@@ -45,7 +45,7 @@ export default function MyLinkButton({
   isLoading,
 }: MyLinkButtonProps) {
   const [bg, setBg] = useState(buttonBg);
-  const [color, setColor] = useState(col[900]);
+  const [color, setColor] = useState(buttonText);
   const [alertVisible, setAlertVisible] = useState(false);
   const router = useRouter();
 

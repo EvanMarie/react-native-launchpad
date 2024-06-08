@@ -5,12 +5,7 @@ import { textShadows } from "@/constants/ShadowStyles";
 import { screenHeight, screenWidth } from "@/constants/variousConstants";
 import { VStack } from "@/custom-components/containers";
 import MyImageBackground from "@/custom-components/imageBackground";
-import {
-  Heading2xl,
-  Heading3xl,
-  Heading4xl,
-  HeadingXl,
-} from "@/custom-components/textComponents";
+import { Heading3xl, Heading4xl } from "@/custom-components/textComponents";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function Design() {
@@ -35,30 +30,22 @@ export default function Design() {
         }}
       >
         <VStack>
-          <Heading2xl
+          <Heading4xl
             style={{ textAlign: "center" }}
             textColor={col[900]}
             textShadow={textShadows.glow100Lg}
             fontFamily={boldAccentFont}
           >
             React Native / Expo
-          </Heading2xl>
-          <HeadingXl
+          </Heading4xl>
+          <Heading3xl
             style={{ textAlign: "center" }}
             textColor={col[900]}
             textShadow={textShadows.glow100Lg}
             fontFamily={boldAccentFont}
           >
             Design Template
-          </HeadingXl>
-          <HeadingXl
-            style={{ textAlign: "center" }}
-            textColor={col[900]}
-            textShadow={textShadows.glow100Lg}
-            fontFamily={boldAccentFont}
-          >
-            Main Route
-          </HeadingXl>
+          </Heading3xl>
         </VStack>
       </LinearGradient>
     </MyImageBackground>

@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { buttonBg, col } from "@/constants/Colors";
+import { buttonBg, buttonText, col } from "@/constants/Colors";
 import { useRouter } from "expo-router";
 import { boxShadows } from "@/constants/ShadowStyles";
 import { borders } from "@/constants/BorderStyles";
@@ -35,7 +35,7 @@ export default function MyLinkIconButton({
   pathname,
   params,
   size = 33,
-  color = col[900],
+  color = buttonText,
   backgroundColor = buttonBg,
   padding = 8,
   style,

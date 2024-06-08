@@ -13,12 +13,23 @@ export default function TabLayout() {
       label: "home",
       pathname: "/",
     },
-
     {
       inactiveIcon: "color-palette-outline",
       activeIcon: "color-palette",
-      label: "design",
-      pathname: "/design",
+      label: "theme",
+      pathname: "/design/colors",
+    },
+    {
+      inactiveIcon: "grid-outline",
+      activeIcon: "grid",
+      label: "components",
+      pathname: "/design/components",
+    },
+    {
+      inactiveIcon: "cog-outline",
+      activeIcon: "cog",
+      label: "testing",
+      pathname: "/design/testing",
     },
   ];
 

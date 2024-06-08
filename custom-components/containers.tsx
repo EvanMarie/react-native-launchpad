@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { SafeAreaView, StyleProp, View, ViewStyle } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function CenterSafeFull({
   children,
@@ -243,3 +244,41 @@ export const VStack = forwardRef<View, VStackFullProps>(
     );
   }
 );
+
+export function TouchableFlex({
+  children,
+  style,
+  onPress,
+}: {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
+}) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={[{ display: "flex", flexDirection: "row" }, style]}
+    >
+      {children}
+    </TouchableOpacity>
+  );
+}
+
+export function TouchableFlexFull({
+  children,
+  style,
+  onPress,
+}: {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
+}) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={[{ display: "flex", flexDirection: "row", width: "100%" }, style]}
+    >
+      {children}
+    </TouchableOpacity>
+  );
+}
